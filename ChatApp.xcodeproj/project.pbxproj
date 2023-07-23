@@ -13,6 +13,7 @@
 		E12D57DE2A6C061200D556EF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E12D57DD2A6C061200D556EF /* FirebaseDatabase */; };
 		E12D57E02A6C061200D556EF /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E12D57DF2A6C061200D556EF /* FirebaseMessaging */; };
 		E12D57E22A6C061200D556EF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E12D57E12A6C061200D556EF /* FirebaseStorage */; };
+		E12D58042A6CAE6700D556EF /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D58032A6CAE6700D556EF /* Extension+UIColor.swift */; };
 		E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089A72A69EDB600C1889D /* AppDelegate.swift */; };
 		E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089A92A69EDB600C1889D /* SceneDelegate.swift */; };
 		E13089AF2A69EDB600C1889D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13089AD2A69EDB600C1889D /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E12D57D82A6C055200D556EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E12D58032A6CAE6700D556EF /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		E13089A42A69EDB600C1889D /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13089A72A69EDB600C1889D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13089A92A69EDB600C1889D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				E13089C32A69F24800C1889D /* Font.swift */,
 				E13089C12A69F02200C1889D /* Colors.xcassets */,
 				E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */,
+				E12D58032A6CAE6700D556EF /* Extension+UIColor.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
 				E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */,
+				E12D58042A6CAE6700D556EF /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

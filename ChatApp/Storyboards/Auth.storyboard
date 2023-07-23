@@ -149,7 +149,7 @@
                     <connections>
                         <outlet property="containerView" destination="ONf-9R-ZEs" id="39G-7F-ree"/>
                         <outlet property="contentView" destination="jEx-7v-pme" id="VyN-KG-7d3"/>
-                        <outlet property="createAccountTextView" destination="r2H-GM-Eof" id="14i-7H-BYG"/>
+                        <outlet property="createAccountTextView" destination="r2H-GM-Eof" id="fib-7b-Xmy"/>
                         <outlet property="emailTextField" destination="bkI-KA-IaK" id="TVx-an-q9M"/>
                         <outlet property="passwordTextField" destination="U0s-hE-Sa0" id="fzf-Xm-WKd"/>
                         <outlet property="scrollView" destination="EXu-4M-0Db" id="c9A-pu-DHQ"/>
@@ -322,10 +322,10 @@
                     <connections>
                         <outlet property="containerView" destination="Kh9-sR-lOW" id="IR4-bK-Tbz"/>
                         <outlet property="contentView" destination="0Th-oj-zrg" id="Adx-fa-cvG"/>
-                        <outlet property="createAccountTextView" destination="dUV-1w-EZU" id="1jF-wI-MCd"/>
                         <outlet property="emailTextField" destination="U27-fO-LVb" id="yEN-kf-Xa9"/>
                         <outlet property="passwordTextField" destination="n1P-S2-cyT" id="Vwr-SM-70L"/>
                         <outlet property="scrollView" destination="tRf-iC-KCn" id="eOD-M4-fyL"/>
+                        <outlet property="signinAccountTextView" destination="dUV-1w-EZU" id="QvM-jY-EL7"/>
                         <outlet property="usernameTextField" destination="zpS-0l-HyM" id="UYD-4q-hii"/>
                         <segue destination="jb9-VD-yjj" kind="presentation" identifier="SignInSegue" id="XhJ-le-tAe"/>
                     </connections>
