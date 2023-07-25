@@ -26,6 +26,8 @@
 		E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089C52A69FBF400C1889D /* SignInViewController.swift */; };
 		E13089C82A69FC1700C1889D /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */; };
 		E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089C92A69FCD300C1889D /* HomeViewController.swift */; };
+		E1F5E6572A708814007915F7 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F5E6562A708814007915F7 /* LoadingView.xib */; };
+		E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E6582A708830007915F7 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		E13089C52A69FBF400C1889D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		E13089C92A69FCD300C1889D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E1F5E6562A708814007915F7 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		E1F5E6582A708830007915F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,12 +130,22 @@
 		E13089CB2A69FFEF00C1889D /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				E1F5E6552A7087FE007915F7 /* Components */,
 				E13089C32A69F24800C1889D /* Font.swift */,
 				E13089C12A69F02200C1889D /* Colors.xcassets */,
-				E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */,
 				E12D58032A6CAE6700D556EF /* Extension+UIColor.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		E1F5E6552A7087FE007915F7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */,
+				E1F5E6562A708814007915F7 /* LoadingView.xib */,
+				E1F5E6582A708830007915F7 /* LoadingView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +219,7 @@
 				E13089BC2A69EE7C00C1889D /* Auth.storyboard in Resources */,
 				E13089B42A69EDBB00C1889D /* LaunchScreen.storyboard in Resources */,
 				E13089B12A69EDBB00C1889D /* Assets.xcassets in Resources */,
+				E1F5E6572A708814007915F7 /* LoadingView.xib in Resources */,
 				E13089AF2A69EDB600C1889D /* Main.storyboard in Resources */,
 				E12D57D92A6C055200D556EF /* GoogleService-Info.plist in Resources */,
 			);
@@ -220,6 +235,7 @@
 				E13089C82A69FC1700C1889D /* CreateAccountViewController.swift in Sources */,
 				E13089C42A69F24800C1889D /* Font.swift in Sources */,
 				E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */,
+				E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
 				E12D58252A6E74EE00D556EF /* Extension+UIViewController.swift in Sources */,
