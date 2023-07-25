@@ -57,7 +57,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xl7-uZ-YQD">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="I9M-yy-xwm"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="I9M-yy-xwm">
+                            <connections>
+                                <action selector="logoutButtonTapped:" destination="zVA-oo-IMP" id="DhQ-Ev-JPB"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aw1-dI-lXv"/>
                     </navigationItem>
                 </viewController>
