@@ -28,6 +28,7 @@
 		E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13089C92A69FCD300C1889D /* HomeViewController.swift */; };
 		E1F5E6572A708814007915F7 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F5E6562A708814007915F7 /* LoadingView.xib */; };
 		E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E6582A708830007915F7 /* LoadingView.swift */; };
+		E1F5E65B2A70A311007915F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		E13089C92A69FCD300C1889D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E1F5E6562A708814007915F7 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E1F5E6582A708830007915F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				E13089C52A69FBF400C1889D /* SignInViewController.swift */,
 				E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */,
 				E13089C92A69FCD300C1889D /* HomeViewController.swift */,
+				E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,
+				E1F5E65B2A70A311007915F7 /* ProfileViewController.swift in Sources */,
 				E12D58252A6E74EE00D556EF /* Extension+UIViewController.swift in Sources */,
 				E13089CA2A69FCD300C1889D /* HomeViewController.swift in Sources */,
 				E13089AA2A69EDB600C1889D /* SceneDelegate.swift in Sources */,
