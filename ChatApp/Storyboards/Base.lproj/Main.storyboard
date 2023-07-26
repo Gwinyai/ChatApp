@@ -115,11 +115,23 @@
                                             <constraint firstAttribute="width" constant="30" id="SVQ-Sm-DQ7"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLX-0b-nAs">
+                                        <rect key="frame" x="297" y="20" width="26" height="26"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dimissButtonTapped:" destination="OJ7-ib-cYI" eventType="touchUpInside" id="Mln-q8-hbd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aj5-DN-9rD" secondAttribute="trailing" constant="20" id="6SD-AK-4Mg"/>
                                     <constraint firstItem="19X-JY-CCj" firstAttribute="centerX" secondItem="0UO-bg-C1S" secondAttribute="centerX" id="FqZ-ui-qCn"/>
+                                    <constraint firstAttribute="trailing" secondItem="QLX-0b-nAs" secondAttribute="trailing" constant="20" id="KOc-2y-75B"/>
                                     <constraint firstItem="MYg-IR-nvU" firstAttribute="leading" secondItem="0UO-bg-C1S" secondAttribute="leading" constant="20" id="Keg-gD-amp"/>
                                     <constraint firstItem="WRi-zy-5ae" firstAttribute="leading" secondItem="19X-JY-CCj" secondAttribute="trailing" constant="-20" id="QDT-go-WtB"/>
                                     <constraint firstItem="WRi-zy-5ae" firstAttribute="bottom" secondItem="19X-JY-CCj" secondAttribute="bottom" constant="5" id="Rau-yi-UU7"/>
@@ -127,6 +139,7 @@
                                     <constraint firstItem="MYg-IR-nvU" firstAttribute="top" secondItem="19X-JY-CCj" secondAttribute="bottom" constant="20" id="iiW-By-Dtk"/>
                                     <constraint firstAttribute="bottom" secondItem="aj5-DN-9rD" secondAttribute="bottom" constant="30" id="jmF-8T-Z18"/>
                                     <constraint firstAttribute="trailing" secondItem="MYg-IR-nvU" secondAttribute="trailing" constant="20" id="jmx-RO-g2e"/>
+                                    <constraint firstItem="QLX-0b-nAs" firstAttribute="top" secondItem="0UO-bg-C1S" secondAttribute="top" constant="20" id="pZb-Zx-ggF"/>
                                     <constraint firstAttribute="height" constant="300" id="tEY-3W-H3o"/>
                                     <constraint firstItem="19X-JY-CCj" firstAttribute="top" secondItem="0UO-bg-C1S" secondAttribute="top" constant="25" id="vv6-js-q5W"/>
                                 </constraints>
@@ -173,6 +186,7 @@
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,7 +10,7 @@ import UIKit
 
 class PrimaryButton: UIButton {
     
-    init(frame: CGRect, test: String = "") {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
     }
@@ -22,6 +22,8 @@ class PrimaryButton: UIButton {
     
     func initSubviews() {
         backgroundColor = UIColor(named: "secondary")
+        setTitleColor(UIColor.white, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     }
     
     func setTitle(text: String) {
