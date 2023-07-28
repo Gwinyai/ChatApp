@@ -97,18 +97,20 @@ class CreateAccountViewController: UIViewController {
             presentErrorAlert(title: "Email Required", message: "Please enter an email to continue.")
             return
         }
+
         
         showLoadingView()
         
-        checkIfExists(username: username) { usernameExists in
+        checkIfExists(username: username) { [weak self] usernameExists in
+            guard let strongSelf = self else { return }
             if !usernameExists {
-                self.createUser(username: username, email: email, password: password) { result, error in
+                strongSelf.createUser(username: username, email: email, password: password) { result, error in
                     if let error = error {
-                        self.presentErrorAlert(title: "Create Account Failed", message: error)
+                        strongSelf.presentErrorAlert(title: "Create Account Failed", message: error)
                         return
                     }
                     guard let result = result else {
-                        self.presentErrorAlert(title: "Create Account Failed", message: "Please try again later")
+                        strongSelf.presentErrorAlert(title: "Create Account Failed", message: "Please try again later")
                         return
                     }
                     let userId = result.user.uid
@@ -130,8 +132,8 @@ class CreateAccountViewController: UIViewController {
                     window?.rootViewController = navVC
                 }
             } else {
-                self.presentErrorAlert(title: "Username In Use", message: "Please try a different username")
-                self.removeLoadingView()
+                strongSelf.presentErrorAlert(title: "Username In Use", message: "Please try a different username")
+                strongSelf.removeLoadingView()
             }
         }
         
@@ -140,7 +142,6 @@ class CreateAccountViewController: UIViewController {
     func checkIfExists(username: String, completion: @escaping (_ result: Bool) -> Void) {
         Database.database().reference().child("usernames").child(username).observeSingleEvent(of: .value) { snapshot in
             guard !snapshot.exists() else {
-                
                 completion(true)
                 return
             }
@@ -149,8 +150,9 @@ class CreateAccountViewController: UIViewController {
     }
     
     func createUser(username: String, email: String, password: String, completion: @escaping (_ result: AuthDataResult?, _ error: String?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            self.removeLoadingView()
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
+            guard let strongSelf = self else { return }
+            strongSelf.removeLoadingView()
             if let error = error {
                 print(error.localizedDescription)
                 var errorMessage = "Something went wrong. Please try again later."
