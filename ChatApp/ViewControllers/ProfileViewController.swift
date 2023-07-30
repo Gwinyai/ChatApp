@@ -7,12 +7,27 @@
 
 import UIKit
 import FirebaseAuth
+import PhotosUI
+import FirebaseDatabase
+
+protocol ProfileViewControllerDelegate: AnyObject {
+    func imageUploadCompleted(url: String?)
+}
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UploadSegue" {
+            let destinationVC = segue.destination as! UploadViewController
+            let imageToUpload = sender as! UIImage
+            destinationVC.imageToUpload = imageToUpload
+            destinationVC.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +61,15 @@ class ProfileViewController: UIViewController {
     @objc func presentAvatarOptions() {
         let avatarOptionsSheet = UIAlertController(title: "Change Avatar", message: "Select an option.", preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
-            
+            self.performSegue(withIdentifier: "UploadSegue", sender: nil)
         }
         let photoAction = UIAlertAction(title: "Photo", style: .default) { _ in
-            
+            var config = PHPickerConfiguration()
+            config.filter = PHPickerFilter.images
+            config.selectionLimit = 1
+            let pickerViewController = PHPickerViewController(configuration: config)
+            pickerViewController.delegate = self
+            self.present(pickerViewController, animated: true)
         }
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
             
@@ -78,4 +98,38 @@ class ProfileViewController: UIViewController {
         present(logoutAlert, animated: true)
     }
 
+}
+
+extension ProfileViewController: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        guard let result = results.first else { return }
+        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            if let image = object as? UIImage {
+                DispatchQueue.main.async {
+                    strongSelf.performSegue(withIdentifier: "UploadSegue", sender: image)
+                }
+            }
+        }
+    }
+    
+}
+
+extension ProfileViewController: ProfileViewControllerDelegate {
+    
+    func imageUploadCompleted(url: String?) {
+        guard let url = url,
+        let userId = Auth.auth().currentUser?.uid else {
+            presentErrorAlert(title: "Failed to Upload", message: "Something went wrong uploading your avatar.")
+            return
+        }
+        Database.database().reference().child("users").child(userId).updateChildValues(["avatarURL": url])
+    }
+    
 }

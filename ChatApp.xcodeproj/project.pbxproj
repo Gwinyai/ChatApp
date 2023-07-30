@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11EE2F72A7489AB004D43F4 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11EE2F62A7489AB004D43F4 /* UploadViewController.swift */; };
 		E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */; };
 		E12D57D92A6C055200D556EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E12D57D82A6C055200D556EF /* GoogleService-Info.plist */; };
 		E12D57DC2A6C061200D556EF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E12D57DB2A6C061200D556EF /* FirebaseAuth */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E11EE2F62A7489AB004D43F4 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		E12D57D62A6B3FD600D556EF /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E12D57D82A6C055200D556EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E12D58032A6CAE6700D556EF /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				E13089C72A69FC1700C1889D /* CreateAccountViewController.swift */,
 				E13089C92A69FCD300C1889D /* HomeViewController.swift */,
 				E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */,
+				E11EE2F62A7489AB004D43F4 /* UploadViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13089C82A69FC1700C1889D /* CreateAccountViewController.swift in Sources */,
+				E11EE2F72A7489AB004D43F4 /* UploadViewController.swift in Sources */,
 				E13089C42A69F24800C1889D /* Font.swift in Sources */,
 				E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */,
 				E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */,

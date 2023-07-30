@@ -83,7 +83,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-bg-C1S">
                                 <rect key="frame" x="25" y="276" width="343" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="19X-JY-CCj">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="19X-JY-CCj">
                                         <rect key="frame" x="111.66666666666666" y="25" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="120" id="LSS-p6-18J"/>
@@ -157,11 +157,50 @@
                         <outlet property="avatarImageView" destination="19X-JY-CCj" id="FWY-uO-EPL"/>
                         <outlet property="containerView" destination="0UO-bg-C1S" id="ZxF-sr-Wwg"/>
                         <outlet property="usernameLabel" destination="MYg-IR-nvU" id="nnX-dI-Tqj"/>
+                        <segue destination="tDN-PH-qE1" kind="presentation" identifier="UploadSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="bd1-Ax-mQ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxe-tO-0Xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962.5954198473282" y="3.5211267605633805"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="r6Y-a2-HO7">
+            <objects>
+                <viewController id="tDN-PH-qE1" customClass="UploadViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y4Q-B5-Kqd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="38d-sx-IRa">
+                                <rect key="frame" x="25" y="424" width="343" height="4"/>
+                                <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading avatar..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjy-uI-mQE">
+                                <rect key="frame" x="125.66666666666669" y="373" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lqk-Cp-XVh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lqk-Cp-XVh" firstAttribute="trailing" secondItem="38d-sx-IRa" secondAttribute="trailing" constant="25" id="E6M-sB-0gy"/>
+                            <constraint firstItem="38d-sx-IRa" firstAttribute="top" secondItem="zjy-uI-mQE" secondAttribute="bottom" constant="30" id="JM6-sq-90Z"/>
+                            <constraint firstItem="zjy-uI-mQE" firstAttribute="centerX" secondItem="Y4Q-B5-Kqd" secondAttribute="centerX" id="NFN-q6-Vai"/>
+                            <constraint firstItem="38d-sx-IRa" firstAttribute="centerY" secondItem="Y4Q-B5-Kqd" secondAttribute="centerY" id="VAg-Kg-esM"/>
+                            <constraint firstItem="38d-sx-IRa" firstAttribute="leading" secondItem="lqk-Cp-XVh" secondAttribute="leading" constant="25" id="hXq-be-moq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="38d-sx-IRa" id="Wdr-r8-QCj"/>
+                        <outlet property="uploadAvatarLabel" destination="zjy-uI-mQE" id="j1s-6i-o4o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hdc-oW-wfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2819" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
