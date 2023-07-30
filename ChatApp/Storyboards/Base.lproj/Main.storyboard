@@ -182,18 +182,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-9e-wsA">
+                                <rect key="frame" x="172.66666666666666" y="458" width="48" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="tDN-PH-qE1" eventType="touchUpInside" id="QeL-ql-UIF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lqk-Cp-XVh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kGg-9e-wsA" firstAttribute="centerX" secondItem="Y4Q-B5-Kqd" secondAttribute="centerX" id="E58-MX-msQ"/>
                             <constraint firstItem="lqk-Cp-XVh" firstAttribute="trailing" secondItem="38d-sx-IRa" secondAttribute="trailing" constant="25" id="E6M-sB-0gy"/>
                             <constraint firstItem="38d-sx-IRa" firstAttribute="top" secondItem="zjy-uI-mQE" secondAttribute="bottom" constant="30" id="JM6-sq-90Z"/>
                             <constraint firstItem="zjy-uI-mQE" firstAttribute="centerX" secondItem="Y4Q-B5-Kqd" secondAttribute="centerX" id="NFN-q6-Vai"/>
                             <constraint firstItem="38d-sx-IRa" firstAttribute="centerY" secondItem="Y4Q-B5-Kqd" secondAttribute="centerY" id="VAg-Kg-esM"/>
+                            <constraint firstItem="kGg-9e-wsA" firstAttribute="top" secondItem="38d-sx-IRa" secondAttribute="bottom" constant="30" id="dyc-jl-xxH"/>
                             <constraint firstItem="38d-sx-IRa" firstAttribute="leading" secondItem="lqk-Cp-XVh" secondAttribute="leading" constant="25" id="hXq-be-moq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="kGg-9e-wsA" id="NvT-ef-PKN"/>
                         <outlet property="progressView" destination="38d-sx-IRa" id="Wdr-r8-QCj"/>
                         <outlet property="uploadAvatarLabel" destination="zjy-uI-mQE" id="j1s-6i-o4o"/>
                     </connections>

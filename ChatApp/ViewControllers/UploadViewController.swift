@@ -15,6 +15,7 @@ class UploadViewController: UIViewController {
     
     @IBOutlet weak var uploadAvatarLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var cancelButton: UIButton!
     var imageToUpload: UIImage!
     var storageTask: StorageUploadTask?
     weak var delegate: ProfileViewControllerDelegate?
@@ -23,6 +24,8 @@ class UploadViewController: UIViewController {
         super.viewDidLoad()
         uploadAvatarLabel.textColor = UIColor.white
         uploadAvatarLabel.font = Font.body
+        cancelButton.setTitleColor(UIColor.white, for: .normal)
+        cancelButton.titleLabel?.font = Font.body
         progressView.tintColor = UIColor.white
         progressView.trackTintColor = UIColor.lightGray
         view.backgroundColor = UIColor.white.withAlphaComponent(0)
@@ -37,9 +40,15 @@ class UploadViewController: UIViewController {
     
     func uploadImage() {
         guard let imageData = imageToUpload.jpegData(compressionQuality: 0.75) else {
+            dismiss(animated: true) {
+                self.delegate?.imageUploadCompleted(url: nil)
+            }
             return
         }
         guard let userId = Auth.auth().currentUser?.uid else {
+            dismiss(animated: true) {
+                self.delegate?.imageUploadCompleted(url: nil)
+            }
             return
         }
         let imageId = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
@@ -77,5 +86,12 @@ class UploadViewController: UIViewController {
             strongSelf.progressView.setProgress(Float(percentComplete), animated: true)
         }
     }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        guard let storageTask = storageTask else { return }
+        storageTask.cancel()
+        dismiss(animated: true)
+    }
+    
 
 }
