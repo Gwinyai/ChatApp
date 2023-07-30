@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import PhotosUI
 import FirebaseDatabase
+import SDWebImage
 
 protocol ProfileViewControllerDelegate: AnyObject {
     func imageUploadCompleted(url: String?)
@@ -31,18 +32,34 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameLabel.text = ""
         avatarImageView.image = UIImage(systemName: "person.fill")
         avatarImageView.tintColor = UIColor.black
         avatarImageView.backgroundColor = UIColor.lightGray
         let avatarTap = UITapGestureRecognizer(target: self, action: #selector(presentAvatarOptions))
         avatarImageView.isUserInteractionEnabled = true
         avatarImageView.addGestureRecognizer(avatarTap)
+        getUserProfile()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         containerView.layer.cornerRadius = 8
         avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+    }
+    
+    func getUserProfile() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
+            if let data = snapshot.value as? [String: Any] {
+                if let avatarURL = data["avatarURL"] as? String {
+                 self.avatarImageView.sd_setImage(with: URL(string: avatarURL))
+                }
+                if let username = data["username"] as? String {
+                    self.usernameLabel.text = "@\(username)"
+                }
+            }
+        }
     }
     
     func logout() {
@@ -129,6 +146,7 @@ extension ProfileViewController: ProfileViewControllerDelegate {
             presentErrorAlert(title: "Failed to Upload", message: "Something went wrong uploading your avatar.")
             return
         }
+        avatarImageView.sd_setImage(with: URL(string: url))
         Database.database().reference().child("users").child(userId).updateChildValues(["avatarURL": url])
     }
     
