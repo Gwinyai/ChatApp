@@ -59,12 +59,13 @@
                     <navigationItem key="navigationItem" id="xl7-uZ-YQD">
                         <barButtonItem key="leftBarButtonItem" image="person.fill" catalog="system" id="I9M-yy-xwm">
                             <connections>
-                                <action selector="profileButtonTapped:" destination="zVA-oo-IMP" id="Y38-Gm-4WP"/>
+                                <action selector="profileButtonTapped:" destination="zVA-oo-IMP" id="7gI-n8-EOm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aw1-dI-lXv"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileBarButtonItem" destination="I9M-yy-xwm" id="pkv-WK-DOm"/>
                         <segue destination="OJ7-ib-cYI" kind="presentation" identifier="ProfileSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Mxf-2V-wGa"/>
                     </connections>
                 </viewController>
@@ -162,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxe-tO-0Xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962.5954198473282" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2001" y="4"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="r6Y-a2-HO7">
@@ -211,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdc-oW-wfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2819" y="4"/>
+            <point key="canvasLocation" x="2833" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
