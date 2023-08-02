@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,16 +63,98 @@
                                 <action selector="profileButtonTapped:" destination="zVA-oo-IMP" id="7gI-n8-EOm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aw1-dI-lXv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="aw1-dI-lXv">
+                            <connections>
+                                <action selector="createRoomButtonTapped:" destination="zVA-oo-IMP" id="sb4-nS-psI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="profileBarButtonItem" destination="I9M-yy-xwm" id="pkv-WK-DOm"/>
                         <segue destination="OJ7-ib-cYI" kind="presentation" identifier="ProfileSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Mxf-2V-wGa"/>
+                        <segue destination="W7I-BR-DG4" kind="presentation" identifier="CreateRoomSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Xxt-4d-SUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-ou-Vi7" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Create Room View Controller-->
+        <scene sceneID="bFc-cR-bz6">
+            <objects>
+                <viewController id="W7I-BR-DG4" customClass="CreateRoomViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sjK-Xn-FHG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xg-xq-dWB">
+                                <rect key="frame" x="25" y="301" width="343" height="250"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQS-Ul-MIf">
+                                        <rect key="frame" x="292.33333333333331" y="25" width="25.666666666666686" height="25.333333333333329"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="xmark" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButtonTapped:" destination="W7I-BR-DG4" eventType="touchUpInside" id="6Sy-U4-kDo"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create Room" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y89-nl-F2o">
+                                        <rect key="frame" x="25" y="90.333333333333314" width="293" height="45"/>
+                                        <color key="backgroundColor" name="textfield-background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="rqU-ZU-Otl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-RV-k0l" customClass="PrimaryButton" customModule="ChatApp" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="165" width="293" height="45"/>
+                                        <color key="backgroundColor" name="secondary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="n5T-zZ-8uA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="CREATE"/>
+                                        <connections>
+                                            <action selector="createRoomButtonTapped:" destination="W7I-BR-DG4" eventType="touchUpInside" id="wKq-uZ-AUB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0f4-RV-k0l" secondAttribute="bottom" constant="40" id="1Ks-Nb-ONk"/>
+                                    <constraint firstItem="y89-nl-F2o" firstAttribute="leading" secondItem="1Xg-xq-dWB" secondAttribute="leading" constant="25" id="ERJ-H7-jei"/>
+                                    <constraint firstItem="0f4-RV-k0l" firstAttribute="leading" secondItem="1Xg-xq-dWB" secondAttribute="leading" constant="25" id="Je5-aT-GSD"/>
+                                    <constraint firstItem="KQS-Ul-MIf" firstAttribute="top" secondItem="1Xg-xq-dWB" secondAttribute="top" constant="25" id="RpW-9B-Ofc"/>
+                                    <constraint firstItem="y89-nl-F2o" firstAttribute="top" secondItem="KQS-Ul-MIf" secondAttribute="bottom" constant="40" id="dOR-1I-eK2"/>
+                                    <constraint firstAttribute="trailing" secondItem="KQS-Ul-MIf" secondAttribute="trailing" constant="25" id="qCG-pv-npM"/>
+                                    <constraint firstAttribute="trailing" secondItem="y89-nl-F2o" secondAttribute="trailing" constant="25" id="qge-15-WfQ"/>
+                                    <constraint firstAttribute="height" constant="250" id="qvJ-vM-OsB"/>
+                                    <constraint firstAttribute="trailing" secondItem="0f4-RV-k0l" secondAttribute="trailing" constant="25" id="unW-kl-TUT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pUu-zH-LpW"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.40023227716913284" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1Xg-xq-dWB" firstAttribute="centerY" secondItem="sjK-Xn-FHG" secondAttribute="centerY" id="LVP-h7-aq7"/>
+                            <constraint firstItem="pUu-zH-LpW" firstAttribute="trailing" secondItem="1Xg-xq-dWB" secondAttribute="trailing" constant="25" id="d1R-9L-Cii"/>
+                            <constraint firstItem="1Xg-xq-dWB" firstAttribute="leading" secondItem="pUu-zH-LpW" secondAttribute="leading" constant="25" id="kM5-o0-J1M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="1Xg-xq-dWB" id="bil-yD-Qki"/>
+                        <outlet property="roomTitleTextField" destination="y89-nl-F2o" id="OpR-et-uNE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ok8-Ni-mx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984" y="-507"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="oTU-ev-FFk">
@@ -163,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxe-tO-0Xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="4"/>
+            <point key="canvasLocation" x="1984" y="255"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="r6Y-a2-HO7">
@@ -212,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdc-oW-wfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2833" y="4"/>
+            <point key="canvasLocation" x="2811" y="255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
@@ -238,6 +321,12 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="secondary">
+            <color red="0.25499999523162842" green="0.39599999785423279" blue="0.54100000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textfield-background">
+            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

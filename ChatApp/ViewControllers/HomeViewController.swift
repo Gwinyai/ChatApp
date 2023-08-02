@@ -57,6 +57,11 @@ class HomeViewController: UIViewController {
     @IBAction func profileButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "ProfileSegue", sender: nil)
     }
+    
+    @IBAction func createRoomButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "CreateRoomSegue", sender: nil)
+    }
+    
 
 }
 
