@@ -38,14 +38,24 @@ class CreateRoomViewController: UIViewController {
             presentErrorAlert(title: "Invalid Room Title", message: "Your room title needs to be between 3 and 12 characters long.")
             return
         }
-        Database.database().reference().child("rooms").child(roomTitle).observeSingleEvent(of: .value) { snapshot in
+        Database.database().reference().child("rooms").child(roomTitle).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let strongSelf = self else { return }
             if snapshot.exists() {
-                self.presentErrorAlert(title: "Room Title In Use", message: "Please choose a different room title.")
+                strongSelf.presentErrorAlert(title: "Room Title In Use", message: "Please choose a different room title.")
                 return
             }
+            
             let createdAt: Double = Date().timeIntervalSince1970
-            let newRoomsDetails: [String: Any] = ["title": roomTitle, "createdAt": createdAt, "userId": userId]
-            Database.database().reference().child("rooms").child(roomTitle).setValue(newRoomsDetails)
+            var roomDetails: [String: Any] = ["title": roomTitle, "createdAt": createdAt, "userId": userId]
+            
+            Database.database().reference().child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
+                if let data = snapshot.value as? [String: Any] {
+                    if let avatarURL = data["avatarURL"] as? String {
+                        roomDetails["avatarURL"] = avatarURL
+                    }
+                }
+                Database.database().reference().child("rooms").child(roomTitle).setValue(roomDetails)
+            }
             
         }
         
