@@ -50,14 +50,10 @@ class ProfileViewController: UIViewController {
     
     func getUserProfile() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
-            if let data = snapshot.value as? [String: Any] {
-                if let avatarURL = data["avatarURL"] as? String {
-                 self.avatarImageView.sd_setImage(with: URL(string: avatarURL))
-                }
-                if let username = data["username"] as? String {
-                    self.usernameLabel.text = "@\(username)"
-                }
+        UserModel.reference.child(userId).observeSingleEvent(of: .value) { snapshot in
+            if let user = UserModel(snapshot: snapshot) {
+                self.avatarImageView.sd_setImage(with: user.avatarURL)
+                self.usernameLabel.text = "@\(user.username)"
             }
         }
     }

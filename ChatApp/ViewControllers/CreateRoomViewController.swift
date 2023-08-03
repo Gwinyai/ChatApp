@@ -48,10 +48,10 @@ class CreateRoomViewController: UIViewController {
             let createdAt: Double = Date().timeIntervalSince1970
             var roomDetails: [String: Any] = ["title": roomTitle, "createdAt": createdAt, "userId": userId]
             
-            Database.database().reference().child("users").child(userId).observeSingleEvent(of: .value) { snapshot in
-                if let data = snapshot.value as? [String: Any] {
-                    if let avatarURL = data["avatarURL"] as? String {
-                        roomDetails["avatarURL"] = avatarURL
+            UserModel.reference.child(userId).observeSingleEvent(of: .value) { snapshot in
+                if let user = UserModel(snapshot: snapshot) {
+                    if let avatarURL = user.avatarURL {
+                        roomDetails["avatarURL"] = avatarURL.absoluteString
                     }
                 }
                 Database.database().reference().child("rooms").child(roomTitle).setValue(roomDetails)

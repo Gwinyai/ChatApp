@@ -30,17 +30,17 @@ class HomeViewController: UIViewController {
     
     func observeUserProfile() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(userId).observe(.value) { snapshot in
-            if let data = snapshot.value as? [String: Any] {
-                if let avatarURL = data["avatarURL"] as? String {
+        UserModel.reference.child(userId).observe(.value) { snapshot in
+            if let user = UserModel(snapshot: snapshot) {
+                if let avatarURL = user.avatarURL {
                     self.createLeftBarButtonItem(avatarURL: avatarURL)
                 }
             }
         }
     }
     
-    func createLeftBarButtonItem(avatarURL: String) {
-        SDWebImageManager.shared.loadImage(with: URL(string: avatarURL), progress: nil) { image, _, error, _, _, _ in
+    func createLeftBarButtonItem(avatarURL: URL) {
+        SDWebImageManager.shared.loadImage(with: avatarURL, progress: nil) { image, _, error, _, _, _ in
             if let error = error {
                 print(error.localizedDescription)
                 return

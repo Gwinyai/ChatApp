@@ -11,13 +11,13 @@ import FirebaseDatabase
 struct RoomModel {
     
     static let reference = Database.database().reference().child("rooms")
-    
+    let id: String
     let title: String
     let createdAt: Date
     var avatarURL: URL?
     
     init?(data: (key: String, value: Any)) {
-        let roomId = data.key
+        self.id = data.key
         guard let roomValue = data.value as? [String: Any] else {
             return nil
         }
