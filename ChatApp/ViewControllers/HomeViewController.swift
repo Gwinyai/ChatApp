@@ -11,13 +11,20 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileBarButtonItem: UIBarButtonItem!
-    var rooms: [RoomModel] = []
+    var rooms: [RoomModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         observeUserProfile()
         observeRooms()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func observeRooms() {
@@ -72,6 +79,29 @@ class HomeViewController: UIViewController {
     }
     
 
+}
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rooms.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let room = rooms[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.identifier, for: indexPath) as! RoomTableViewCell
+        cell.configure(room: room)
+        return cell
+    }
+    
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
 }
 
 

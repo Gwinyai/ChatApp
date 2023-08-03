@@ -55,6 +55,7 @@ class CreateRoomViewController: UIViewController {
                     }
                 }
                 Database.database().reference().child("rooms").child(roomTitle).setValue(roomDetails)
+                strongSelf.dismiss(animated: true)
             }
             
         }

@@ -21,28 +21,49 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewCell" rowHeight="88" id="POI-6N-S4g" customClass="ChatTableViewCell" customModule="ChatApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="88"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomTableViewCell" rowHeight="80" id="POI-6N-S4g" customClass="RoomTableViewCell" customModule="ChatApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="POI-6N-S4g" id="mNU-ll-JaA">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZd-z6-D0T">
-                                                    <rect key="frame" x="25" y="34" width="343" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZd-z6-D0T">
+                                                    <rect key="frame" x="90" y="12.666666666666664" width="283" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zen-0a-whV">
+                                                    <rect key="frame" x="20" y="14.666666666666661" width="55" height="51.666666666666671"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="55" id="beW-p4-7z2"/>
+                                                        <constraint firstAttribute="height" constant="55" id="xIg-Ry-yju"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at 15/6/23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wq8-1r-Nvk">
+                                                    <rect key="frame" x="90" y="37.666666666666664" width="283" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NZd-z6-D0T" firstAttribute="leading" secondItem="mNU-ll-JaA" secondAttribute="leading" constant="25" id="KXy-K3-0ju"/>
-                                                <constraint firstAttribute="trailing" secondItem="NZd-z6-D0T" secondAttribute="trailing" constant="25" id="Uzv-8k-5Ec"/>
-                                                <constraint firstItem="NZd-z6-D0T" firstAttribute="centerY" secondItem="mNU-ll-JaA" secondAttribute="centerY" id="YI9-Y1-RDO"/>
+                                                <constraint firstAttribute="trailing" secondItem="NZd-z6-D0T" secondAttribute="trailing" constant="20" id="5Cw-sF-FIl"/>
+                                                <constraint firstAttribute="trailing" secondItem="wq8-1r-Nvk" secondAttribute="trailing" constant="20" id="ZXo-ch-IJM"/>
+                                                <constraint firstItem="wq8-1r-Nvk" firstAttribute="leading" secondItem="Zen-0a-whV" secondAttribute="trailing" constant="15" id="gW8-Bi-WnW"/>
+                                                <constraint firstItem="NZd-z6-D0T" firstAttribute="top" secondItem="Zen-0a-whV" secondAttribute="top" id="iIi-jh-jE3"/>
+                                                <constraint firstItem="NZd-z6-D0T" firstAttribute="leading" secondItem="Zen-0a-whV" secondAttribute="trailing" constant="15" id="jKa-1U-rj8"/>
+                                                <constraint firstItem="wq8-1r-Nvk" firstAttribute="top" secondItem="NZd-z6-D0T" secondAttribute="bottom" constant="5" id="rmp-kT-fkD"/>
+                                                <constraint firstItem="Zen-0a-whV" firstAttribute="leading" secondItem="mNU-ll-JaA" secondAttribute="leading" constant="20" id="t3A-aP-NU8"/>
+                                                <constraint firstItem="Zen-0a-whV" firstAttribute="centerY" secondItem="mNU-ll-JaA" secondAttribute="centerY" id="vBS-iS-ABR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="roomTitleLabel" destination="NZd-z6-D0T" id="84E-eP-TkQ"/>
+                                            <outlet property="avatarImageView" destination="Zen-0a-whV" id="baL-2w-dZ5"/>
+                                            <outlet property="dateLabel" destination="wq8-1r-Nvk" id="Asr-Es-p06"/>
+                                            <outlet property="titleLabel" destination="NZd-z6-D0T" id="u0k-JN-6O5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,6 +92,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="profileBarButtonItem" destination="I9M-yy-xwm" id="pkv-WK-DOm"/>
+                        <outlet property="tableView" destination="s2F-0h-0bj" id="a99-yJ-jnM"/>
                         <segue destination="OJ7-ib-cYI" kind="presentation" identifier="ProfileSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Mxf-2V-wGa"/>
                         <segue destination="W7I-BR-DG4" kind="presentation" identifier="CreateRoomSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Xxt-4d-SUt"/>
                     </connections>
@@ -108,7 +130,7 @@
                                             <constraint firstAttribute="height" constant="45" id="rqU-ZU-Otl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-RV-k0l" customClass="PrimaryButton" customModule="ChatApp" customModuleProvider="target">
                                         <rect key="frame" x="25" y="165" width="293" height="45"/>

@@ -31,6 +31,7 @@
 		E18AB8182A79CAE1000CE06A /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AB8172A79CAE1000CE06A /* CreateRoomViewController.swift */; };
 		E18AB81B2A7A3CC5000CE06A /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AB81A2A7A3CC5000CE06A /* RoomModel.swift */; };
 		E18AB8412A7B2F41000CE06A /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AB8402A7B2F41000CE06A /* UserModel.swift */; };
+		E18AB8442A7C5EF1000CE06A /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18AB8432A7C5EF1000CE06A /* RoomTableViewCell.swift */; };
 		E1F5E6572A708814007915F7 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F5E6562A708814007915F7 /* LoadingView.xib */; };
 		E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E6582A708830007915F7 /* LoadingView.swift */; };
 		E1F5E65B2A70A311007915F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */; };
@@ -58,6 +59,7 @@
 		E18AB8172A79CAE1000CE06A /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
 		E18AB81A2A7A3CC5000CE06A /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		E18AB8402A7B2F41000CE06A /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E18AB8432A7C5EF1000CE06A /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		E1F5E6562A708814007915F7 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E1F5E6582A708830007915F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		E13089A62A69EDB600C1889D /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				E18AB8422A7C5EC8000CE06A /* Views */,
 				E18AB8192A7A3CAD000CE06A /* Models */,
 				E12D58232A6E74D000D556EF /* Extensions */,
 				E13089CB2A69FFEF00C1889D /* Design */,
@@ -161,6 +164,14 @@
 				E18AB8402A7B2F41000CE06A /* UserModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E18AB8422A7C5EC8000CE06A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E18AB8432A7C5EF1000CE06A /* RoomTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E1F5E6552A7087FE007915F7 /* Components */ = {
@@ -261,6 +272,7 @@
 			files = (
 				E18AB81B2A7A3CC5000CE06A /* RoomModel.swift in Sources */,
 				E13089C82A69FC1700C1889D /* CreateAccountViewController.swift in Sources */,
+				E18AB8442A7C5EF1000CE06A /* RoomTableViewCell.swift in Sources */,
 				E11EE2F72A7489AB004D43F4 /* UploadViewController.swift in Sources */,
 				E13089C42A69F24800C1889D /* Font.swift in Sources */,
 				E18AB8182A79CAE1000CE06A /* CreateRoomViewController.swift in Sources */,
