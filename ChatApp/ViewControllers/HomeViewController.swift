@@ -21,32 +21,10 @@ class HomeViewController: UIViewController {
     }
     
     func observeRooms() {
-        Database.database().reference().child("rooms").observe(.value) { [weak self] snapshot in
+        RoomModel.reference.observe(.value) { [weak self] snapshot in
             guard let strongSelf = self else { return }
             guard let rooms = snapshot.value as? [String: Any] else { return }
-            for room in rooms {
-                let roomId = room.key
-                guard let roomValue = room.value as? [String: Any] else {
-                    continue
-                }
-                guard let title = roomValue["title"] as? String else {
-                    continue
-                }
-                guard let createdAt = roomValue["createdAt"] as? Double else {
-                    continue
-                }
-                let createdAtDate = Date(timeIntervalSince1970: createdAt)
-                
-                var roomModel = RoomModel(title: title, createdAt: createdAtDate)
-                
-                if let avatar = roomValue["avatarURL"] as? String,
-                   let avatarURL = URL(string: avatar) {
-                    roomModel.avatarURL = avatarURL
-                }
-                
-                strongSelf.rooms.append(roomModel)
-            }
-            print("DEBUG: rooms \(strongSelf.rooms)")
+            strongSelf.rooms = rooms.compactMap { RoomModel(data: $0) }
         }
     }
     
