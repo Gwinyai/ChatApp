@@ -11,10 +11,20 @@ class RoomViewController: UIViewController {
     
     @IBOutlet weak var bottomInputViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
+    var messages: [MessageModel] = [
+        MessageModel(username: "", text: "Hello World!", createdAt: Date()),
+        MessageModel(username: "", text: "nwejkbf lweflwe lewfwe lkewlf lewbfew lbewfjl lkwehfliwe lkwelf ewlkewf lhwelf elw ewfwekfbwl", createdAt: Date())
+    
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 83
+        tableView.separatorStyle = .none
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,4 +65,20 @@ class RoomViewController: UIViewController {
         view.layoutIfNeeded()
     }
 
+}
+
+extension RoomViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: SentTableViewCell.identifier) as! SentTableViewCell
+        cell.configure(message: message)
+        return cell
+    }
+    
+    
 }
