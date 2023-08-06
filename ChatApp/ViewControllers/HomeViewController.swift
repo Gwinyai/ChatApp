@@ -21,6 +21,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Chat App"
         observeUserProfile()
         observeRooms()
         tableView.dataSource = self
@@ -100,6 +101,10 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowRoomSegue", sender: nil)
     }
     
 }

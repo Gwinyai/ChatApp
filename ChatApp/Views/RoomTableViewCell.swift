@@ -33,6 +33,7 @@ class RoomTableViewCell: UITableViewCell {
         let date = dateFormatter.string(from: room.createdAt)
         dateLabel.text = "Created at \(date)"
         avatarImageView.sd_setImage(with: room.avatarURL, placeholderImage: UIImage(systemName: "person.fill"))
+        selectionStyle = .none
     }
 
 }

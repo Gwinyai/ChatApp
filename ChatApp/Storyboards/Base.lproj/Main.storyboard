@@ -95,11 +95,73 @@
                         <outlet property="tableView" destination="s2F-0h-0bj" id="a99-yJ-jnM"/>
                         <segue destination="OJ7-ib-cYI" kind="presentation" identifier="ProfileSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Mxf-2V-wGa"/>
                         <segue destination="W7I-BR-DG4" kind="presentation" identifier="CreateRoomSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Xxt-4d-SUt"/>
+                        <segue destination="QnF-PN-WaS" kind="show" identifier="ShowRoomSegue" id="Efh-BM-axg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-ou-Vi7" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063.3587786259541" y="3.5211267605633805"/>
+        </scene>
+        <!--Room View Controller-->
+        <scene sceneID="nmQ-Wy-faT">
+            <objects>
+                <viewController id="QnF-PN-WaS" customClass="RoomViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Gp-B2-aG9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZq-hN-86b">
+                                <rect key="frame" x="0.0" y="768" width="393" height="50"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dSO-0Y-NUF">
+                                        <rect key="frame" x="10" y="8" width="283" height="34"/>
+                                        <color key="backgroundColor" name="textfield-background"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2f-b9-V1J" customClass="PrimaryButton" customModule="ChatApp" customModuleProvider="target">
+                                        <rect key="frame" x="303" y="8" width="80" height="34"/>
+                                        <color key="backgroundColor" name="secondary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="HhQ-Fg-pDt"/>
+                                            <constraint firstAttribute="height" constant="34" id="oQG-EB-zKP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="SEND">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="dSO-0Y-NUF" firstAttribute="top" secondItem="nZq-hN-86b" secondAttribute="top" constant="8" id="9Vf-Lf-giK"/>
+                                    <constraint firstItem="Q2f-b9-V1J" firstAttribute="leading" secondItem="dSO-0Y-NUF" secondAttribute="trailing" constant="10" id="Jm1-7Y-U2K"/>
+                                    <constraint firstItem="Q2f-b9-V1J" firstAttribute="centerY" secondItem="dSO-0Y-NUF" secondAttribute="centerY" id="Mw5-F3-Eor"/>
+                                    <constraint firstAttribute="bottom" secondItem="dSO-0Y-NUF" secondAttribute="bottom" constant="8" id="QPa-d0-y8t"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q2f-b9-V1J" secondAttribute="trailing" constant="10" id="cTF-HG-hOh"/>
+                                    <constraint firstItem="dSO-0Y-NUF" firstAttribute="leading" secondItem="nZq-hN-86b" secondAttribute="leading" constant="10" id="uo4-fr-lAg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sA5-Xc-mJ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sA5-Xc-mJ4" firstAttribute="trailing" secondItem="nZq-hN-86b" secondAttribute="trailing" id="2z2-7o-93F"/>
+                            <constraint firstItem="nZq-hN-86b" firstAttribute="bottom" secondItem="sA5-Xc-mJ4" secondAttribute="bottom" id="U7T-uu-LmL"/>
+                            <constraint firstItem="nZq-hN-86b" firstAttribute="leading" secondItem="sA5-Xc-mJ4" secondAttribute="leading" id="jE7-Np-XBq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CqW-Hx-k91"/>
+                    <connections>
+                        <outlet property="bottomInputViewConstraint" destination="U7T-uu-LmL" id="SkU-EV-GMQ"/>
+                        <outlet property="messageTextView" destination="dSO-0Y-NUF" id="qP4-uo-xAh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yGN-px-SQw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2107.6335877862593" y="3.5211267605633805"/>
         </scene>
         <!--Create Room View Controller-->
         <scene sceneID="bFc-cR-bz6">
@@ -176,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok8-Ni-mx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="-507"/>
+            <point key="canvasLocation" x="2236" y="-772"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="oTU-ev-FFk">
@@ -268,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxe-tO-0Xc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1984" y="255"/>
+            <point key="canvasLocation" x="2024" y="701"/>
         </scene>
         <!--Upload View Controller-->
         <scene sceneID="r6Y-a2-HO7">
@@ -317,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdc-oW-wfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2811" y="255"/>
+            <point key="canvasLocation" x="2938" y="701"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ps-Qt-YHo">
@@ -349,6 +411,9 @@
         <namedColor name="textfield-background">
             <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
