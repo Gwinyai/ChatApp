@@ -35,6 +35,7 @@
 		E1A14E9F2A7F983F008ED87B /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A14E9E2A7F983F008ED87B /* RoomViewController.swift */; };
 		E1A14EA12A7FC969008ED87B /* SentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A14EA02A7FC969008ED87B /* SentTableViewCell.swift */; };
 		E1A14EA32A7FD199008ED87B /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A14EA22A7FD199008ED87B /* MessageModel.swift */; };
+		E1A14EA52A805E0B008ED87B /* ReceivedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A14EA42A805E0B008ED87B /* ReceivedTableViewCell.swift */; };
 		E1F5E6572A708814007915F7 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F5E6562A708814007915F7 /* LoadingView.xib */; };
 		E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E6582A708830007915F7 /* LoadingView.swift */; };
 		E1F5E65B2A70A311007915F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */; };
@@ -66,6 +67,7 @@
 		E1A14E9E2A7F983F008ED87B /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		E1A14EA02A7FC969008ED87B /* SentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentTableViewCell.swift; sourceTree = "<group>"; };
 		E1A14EA22A7FD199008ED87B /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		E1A14EA42A805E0B008ED87B /* ReceivedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedTableViewCell.swift; sourceTree = "<group>"; };
 		E1F5E6562A708814007915F7 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E1F5E6582A708830007915F7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E1F5E65A2A70A311007915F7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				E18AB8432A7C5EF1000CE06A /* RoomTableViewCell.swift */,
 				E1A14EA02A7FC969008ED87B /* SentTableViewCell.swift */,
+				E1A14EA42A805E0B008ED87B /* ReceivedTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				E1A14EA12A7FC969008ED87B /* SentTableViewCell.swift in Sources */,
 				E18AB8182A79CAE1000CE06A /* CreateRoomViewController.swift in Sources */,
 				E13089A82A69EDB600C1889D /* AppDelegate.swift in Sources */,
+				E1A14EA52A805E0B008ED87B /* ReceivedTableViewCell.swift in Sources */,
 				E1F5E6592A708830007915F7 /* LoadingView.swift in Sources */,
 				E13089C62A69FBF400C1889D /* SignInViewController.swift in Sources */,
 				E12D57D72A6B3FD600D556EF /* PrimaryButton.swift in Sources */,

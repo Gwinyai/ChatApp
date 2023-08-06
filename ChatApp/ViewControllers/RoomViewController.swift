@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RoomViewController: UIViewController {
     
@@ -13,8 +14,8 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     var messages: [MessageModel] = [
-        MessageModel(username: "", text: "Hello World!", createdAt: Date()),
-        MessageModel(username: "", text: "nwejkbf lweflwe lewfwe lkewlf lewbfew lbewfjl lkwehfliwe lkwelf ewlkewf lhwelf elw ewfwekfbwl", createdAt: Date())
+        MessageModel(senderId: "user1", username: "TestUser", text: "Hello World!", createdAt: Date()),
+        MessageModel(senderId: "user2", username: "TestUser2", text: "nwejkbf lweflwe lewfwe lkewlf lewbfew lbewfjl lkwehfliwe lkwelf ewlkewf lhwelf elw ewfwekfbwl", createdAt: Date())
     
     ]
     
@@ -75,9 +76,15 @@ extension RoomViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: SentTableViewCell.identifier) as! SentTableViewCell
-        cell.configure(message: message)
-        return cell
+        if message.senderId == "user1" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SentTableViewCell.identifier) as! SentTableViewCell
+            cell.configure(message: message)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedTableViewCell.identifier) as! ReceivedTableViewCell
+            cell.configure(message: message)
+            return cell
+        }
     }
     
     

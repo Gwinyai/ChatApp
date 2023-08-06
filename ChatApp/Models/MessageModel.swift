@@ -8,6 +8,7 @@
 import Foundation
 
 struct MessageModel {
+    let senderId: String
     let username: String
     let text: String
     let createdAt: Date
