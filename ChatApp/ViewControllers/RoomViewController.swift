@@ -6,13 +6,15 @@
 //
 
 import UIKit
-import FirebaseAuth
+import FirebaseDatabase
 
 class RoomViewController: UIViewController {
     
     @IBOutlet weak var bottomInputViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    var user: UserModel?
+    var room: RoomModel?
     var messages: [MessageModel] = [
         MessageModel(senderId: "user1", username: "TestUser", text: "Hello World!", createdAt: Date()),
         MessageModel(senderId: "user2", username: "TestUser2", text: "nwejkbf lweflwe lewfwe lkewlf lewbfew lbewfjl lkwehfliwe lkwelf ewlkewf lhwelf elw ewfwekfbwl", createdAt: Date())
@@ -52,6 +54,7 @@ class RoomViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIWindow.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIWindow.keyboardWillHideNotification, object: nil)
     }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
@@ -65,6 +68,37 @@ class RoomViewController: UIViewController {
         bottomInputViewConstraint.constant = 0
         view.layoutIfNeeded()
     }
+    
+    @IBAction func sendMessageButtonTapped(_ sender: Any) {
+        
+        guard let user = user,
+            let room = room else {
+            presentErrorAlert(title: "Cannot Send Message", message: "Sending messages is not possible right now.")
+            return
+        }
+        
+        guard let message = messageTextView.text,
+              message.count >= 1 else {
+            presentErrorAlert(title: "Cannot Send Message", message: "Please ensure that you have entered at least one character")
+            return
+        }
+        var messageData: [String: Any] = [
+            "text": message,
+            "senderId": user.id,
+            "createdAt": Date().timeIntervalSince1970,
+            "username": user.username
+        ]
+        
+        if let avatarURL = user.avatarURL {
+            messageData["avatarURL"] = avatarURL.absoluteString
+        }
+        
+        Database.database().reference().child("messages").child(room.title).childByAutoId().setValue(messageData)
+        
+        messageTextView.text = nil
+        view.endEditing(true)
+    }
+    
 
 }
 

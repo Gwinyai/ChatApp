@@ -132,6 +132,9 @@
                                         <state key="normal" title="SEND">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendMessageButtonTapped:" destination="QnF-PN-WaS" eventType="touchUpInside" id="lMN-sG-3Cr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

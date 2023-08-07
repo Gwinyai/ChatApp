@@ -13,9 +13,19 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileBarButtonItem: UIBarButtonItem!
+    var user: UserModel?
     var rooms: [RoomModel] = [] {
         didSet {
             tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowRoomSegue" {
+            let destinationVC = segue.destination as! RoomViewController
+            let room = sender as! RoomModel
+            destinationVC.user = user
+            destinationVC.room = room
         }
     }
 
@@ -40,6 +50,7 @@ class HomeViewController: UIViewController {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         UserModel.reference.child(userId).observe(.value) { snapshot in
             if let user = UserModel(snapshot: snapshot) {
+                self.user = user
                 if let avatarURL = user.avatarURL {
                     self.createLeftBarButtonItem(avatarURL: avatarURL)
                 }
@@ -104,7 +115,8 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ShowRoomSegue", sender: nil)
+        let room = rooms[indexPath.row]
+        performSegue(withIdentifier: "ShowRoomSegue", sender: room)
     }
     
 }
