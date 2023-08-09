@@ -15,11 +15,7 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var user: UserModel?
     var room: RoomModel?
-    var messages: [MessageModel] = [
-        MessageModel(senderId: "user1", username: "TestUser", text: "Hello World!", createdAt: Date()),
-        MessageModel(senderId: "user2", username: "TestUser2", text: "nwejkbf lweflwe lewfwe lkewlf lewbfew lbewfjl lkwehfliwe lkwelf ewlkewf lhwelf elw ewfwekfbwl", createdAt: Date())
-    
-    ]
+    var messages: [MessageModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +24,45 @@ class RoomViewController: UIViewController {
         tableView.estimatedRowHeight = 83
         tableView.separatorStyle = .none
         tableView.reloadData()
+        fetchMessages()
+    }
+    
+    func fetchMessages() {
+        guard let room = room else {
+            presentErrorAlert(title: "Messages Error", message: "We could not get messages right now.")
+            return
+        }
+        MessageModel.reference.child(room.title).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let strongSelf = self else { return }
+            guard let messages = snapshot.value as? [String: Any] else { return }
+            strongSelf.messages = messages.compactMap { MessageModel(data: $0) }
+            strongSelf.messages.sort { message1, message2 in
+                message1.createdAt > message2.createdAt
+            }
+            strongSelf.tableView.reloadData()
+            strongSelf.observeMessages()
+        }
+    }
+    
+    func observeMessages() {
+        guard let room = room else {
+            return
+        }
+        MessageModel.reference.child(room.title).observe(.childAdded) { [weak self] snapshot in
+            guard let strongSelf = self else { return }
+            guard let message = MessageModel(snapshot: snapshot) else {
+                return
+            }
+            let isMessageFound = strongSelf.messages.contains(where: { queryMessage in
+                message.id == queryMessage.id
+            })
+            if !isMessageFound {
+                strongSelf.messages.insert(message, at: 0)
+                strongSelf.tableView.beginUpdates()
+                strongSelf.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+                strongSelf.tableView.endUpdates()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
