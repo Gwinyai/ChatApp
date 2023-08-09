@@ -19,6 +19,7 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 83
@@ -145,13 +146,16 @@ extension RoomViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        if message.senderId == "user1" {
+        if let userId = user?.id,
+           message.senderId == userId {
             let cell = tableView.dequeueReusableCell(withIdentifier: SentTableViewCell.identifier) as! SentTableViewCell
             cell.configure(message: message)
+            cell.transform = CGAffineTransform(scaleX: 1, y: -1)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReceivedTableViewCell.identifier) as! ReceivedTableViewCell
             cell.configure(message: message)
+            cell.transform = CGAffineTransform(scaleX: 1, y: -1)
             return cell
         }
     }
