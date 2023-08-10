@@ -120,7 +120,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2f-b9-V1J" customClass="PrimaryButton" customModule="ChatApp" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2f-b9-V1J">
                                         <rect key="frame" x="303" y="8" width="80" height="34"/>
                                         <color key="backgroundColor" name="secondary"/>
                                         <constraints>
@@ -317,6 +317,7 @@
                     <connections>
                         <outlet property="bottomInputViewConstraint" destination="U7T-uu-LmL" id="SkU-EV-GMQ"/>
                         <outlet property="messageTextView" destination="dSO-0Y-NUF" id="qP4-uo-xAh"/>
+                        <outlet property="sendButton" destination="Q2f-b9-V1J" id="qFA-LJ-y9a"/>
                         <outlet property="tableView" destination="Pvi-dc-xQ6" id="qTH-rC-lET"/>
                     </connections>
                 </viewController>

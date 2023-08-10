@@ -13,6 +13,7 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var bottomInputViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendButton: UIButton!
     var user: UserModel?
     var room: RoomModel?
     var messages: [MessageModel] = []
@@ -26,6 +27,11 @@ class RoomViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.reloadData()
         fetchMessages()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sendButton.layer.cornerRadius = sendButton.frame.height / 2
     }
     
     func fetchMessages() {

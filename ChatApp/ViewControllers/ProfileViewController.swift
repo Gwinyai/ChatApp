@@ -50,10 +50,11 @@ class ProfileViewController: UIViewController {
     
     func getUserProfile() {
         guard let userId = Auth.auth().currentUser?.uid else { return }
-        UserModel.reference.child(userId).observeSingleEvent(of: .value) { snapshot in
+        UserModel.reference.child(userId).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let strongSelf = self else { return }
             if let user = UserModel(snapshot: snapshot) {
-                self.avatarImageView.sd_setImage(with: user.avatarURL)
-                self.usernameLabel.text = "@\(user.username)"
+                strongSelf.avatarImageView.sd_setImage(with: user.avatarURL, placeholderImage: UIImage(systemName: "person.fill"))
+                strongSelf.usernameLabel.text = "@\(user.username)"
             }
         }
     }

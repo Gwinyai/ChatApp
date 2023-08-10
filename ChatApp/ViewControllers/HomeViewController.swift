@@ -42,7 +42,11 @@ class HomeViewController: UIViewController {
         RoomModel.reference.observe(.value) { [weak self] snapshot in
             guard let strongSelf = self else { return }
             guard let rooms = snapshot.value as? [String: Any] else { return }
-            strongSelf.rooms = rooms.compactMap { RoomModel(data: $0) }
+            let unorderedRooms = rooms.compactMap { RoomModel(data: $0) }
+            let orderedRooms = unorderedRooms.sorted { room1, room2 in
+                room1.createdAt > room2.createdAt
+            }
+            strongSelf.rooms = orderedRooms
         }
     }
     
