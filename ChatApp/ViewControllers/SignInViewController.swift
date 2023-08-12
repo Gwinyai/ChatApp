@@ -24,7 +24,7 @@ class SignInViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: "Don't have an account? Create an account here.", attributes: [.font: Font.caption])
         attributedString.addAttribute(.link, value: "chatappsignin://signinAccount", range: (attributedString.string as NSString).range(of: "Create an account here."))
         createAccountTextView.attributedText = attributedString
-        createAccountTextView.linkTextAttributes = [.foregroundColor: UIColor.secondary, .font: Font.linkLabel]
+        createAccountTextView.linkTextAttributes = [.foregroundColor: UIColor.black, .font: Font.linkLabel]
         createAccountTextView.delegate = self
         createAccountTextView.isScrollEnabled = false
         createAccountTextView.textAlignment = .center
@@ -33,6 +33,14 @@ class SignInViewController: UIViewController {
         passwordTextField.delegate = self
         let backgroundTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(backgroundTap)
+        
+        containerView.backgroundColor = UIColor.clear
+        createAccountTextView.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: .light)
+        let visualEffectView = UIVisualEffectView(effect: blurEffect)
+        visualEffectView.frame = view.bounds
+        containerView.addSubview(visualEffectView)
+        containerView.sendSubviewToBack(visualEffectView)
     }
     
     override func viewDidLayoutSubviews() {
